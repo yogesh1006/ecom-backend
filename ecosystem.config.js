@@ -5,7 +5,7 @@ module.exports = {
       watch       : true,
       env: {
         "PORT":3000,
-        "HOST":"13.235.242.157"
+        "HOST":"13.126.37.93"
       }
     }]
   }

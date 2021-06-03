@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ushopweship/static/css/main.75aac8d1.chunk.css",
+    "main.js": "/ushopweship/static/js/main.a9b0d141.chunk.js",
+    "main.js.map": "/ushopweship/static/js/main.a9b0d141.chunk.js.map",
+    "runtime-main.js": "/ushopweship/static/js/runtime-main.b303d364.js",
+    "runtime-main.js.map": "/ushopweship/static/js/runtime-main.b303d364.js.map",
+    "static/css/2.97503911.chunk.css": "/ushopweship/static/css/2.97503911.chunk.css",
+    "static/js/2.82226965.chunk.js": "/ushopweship/static/js/2.82226965.chunk.js",
+    "static/js/2.82226965.chunk.js.map": "/ushopweship/static/js/2.82226965.chunk.js.map",
+    "static/js/3.43d51d2a.chunk.js": "/ushopweship/static/js/3.43d51d2a.chunk.js",
+    "static/js/3.43d51d2a.chunk.js.map": "/ushopweship/static/js/3.43d51d2a.chunk.js.map",
+    "index.html": "/ushopweship/index.html",
+    "static/css/2.97503911.chunk.css.map": "/ushopweship/static/css/2.97503911.chunk.css.map",
+    "static/css/main.75aac8d1.chunk.css.map": "/ushopweship/static/css/main.75aac8d1.chunk.css.map",
+    "static/js/2.82226965.chunk.js.LICENSE.txt": "/ushopweship/static/js/2.82226965.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b303d364.js",
+    "static/css/2.97503911.chunk.css",
+    "static/js/2.82226965.chunk.js",
+    "static/css/main.75aac8d1.chunk.css",
+    "static/js/main.a9b0d141.chunk.js"
+  ]
+}

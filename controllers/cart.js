@@ -28,7 +28,7 @@ module.exports = {
                 })
                 let cart_total_price= 0;
                 cart.products.map(item => {
-                    cart_total_price= cart_total_price + (item.price * item.qty)
+                    cart_total_price= cart_total_price + (parseInt(item.price) * parseInt(item.qty))
                 })
                 let cart_total_item = cart.products.length
                 let updatedCart = await Cart.findByIdAndUpdate(
@@ -49,7 +49,7 @@ module.exports = {
                 }]
                 let cart_total_price= 0;
                 products.map(item => {
-                    cart_total_price= cart_total_price + (item.price * item.qty)
+                    cart_total_price= cart_total_price + (parseInt(item.price) * parseInt(item.qty))
                 })
                 let newCart = new Cart({
                     user_id: req.user._id,
@@ -87,7 +87,7 @@ module.exports = {
             })
             let cart_total_price= 0;
                 cart.products.map(item => {
-                    cart_total_price= cart_total_price + (item.price * item.qty)
+                    cart_total_price= cart_total_price + (parseInt(item.price) * parseInt(item.qty))
                 })
             let updatedCart = await Cart.findByIdAndUpdate(
                 cart._id,
@@ -117,7 +117,7 @@ module.exports = {
             let products = cart.products.filter(item => item.product_id != req.body.product_id)
             let cart_total_price= 0;
                 products.map(item => {
-                    cart_total_price= cart_total_price + (item.price * item.qty)
+                    cart_total_price= cart_total_price + (parseInt(item.price) * parseInt(item.qty))
                 })
             let result = await Cart.findByIdAndUpdate(cart._id, { products: products, cart_total_item: products.length,cart_total_price:cart_total_price }, { new: true })
             res.json({

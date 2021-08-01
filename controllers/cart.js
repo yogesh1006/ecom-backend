@@ -48,7 +48,7 @@ module.exports = {
                     image: product.image
                 }]
                 let cart_total_price= 0;
-                cart.products.map(item => {
+                products.map(item => {
                     cart_total_price= cart_total_price + (item.price * item.qty)
                 })
                 let newCart = new Cart({

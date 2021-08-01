@@ -49,7 +49,7 @@ module.exports = {
                 }]
                 let cart_total_price= 0;
                 products.map(item => {
-                    cart_total_price= cart_total_price + (parseInt(item.price) * parseInt(item.qty))
+                    cart_total_price= cart_total_price + (parseInt(item.price))
                 })
                 let newCart = new Cart({
                     user_id: req.user._id,

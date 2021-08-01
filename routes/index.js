@@ -10,7 +10,6 @@ const Validation= require('../validations')
 const {upload}= require('../utils/uploader')
 const isUserAuthenticated= require('../middlewares/isUserAuthenticated')
 
-
 // User apis
 
 router.post('/auth/login',Validation.validateLogin(),Validation.validate,UserController.login)

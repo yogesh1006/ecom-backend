@@ -26,10 +26,14 @@ module.exports = {
                     price: product.price,
                     image: product.image
                 })
+                let cart_total_price= 0;
+                cart.products.map(item => {
+                    cart_total_price= cart_total_price + (item.price * item.qty)
+                })
                 let cart_total_item = cart.products.length
                 let updatedCart = await Cart.findByIdAndUpdate(
                     cart._id,
-                    { products: cart.products, cart_total_item: cart_total_item },
+                    { products: cart.products, cart_total_item: cart_total_item,cart_total_price:cart_total_price },
                     { new: true }
                 )
                 res.json({
@@ -43,11 +47,15 @@ module.exports = {
                     price: product.price,
                     image: product.image
                 }]
-
+                let cart_total_price= 0;
+                cart.products.map(item => {
+                    cart_total_price= cart_total_price + (item.price * item.qty)
+                })
                 let newCart = new Cart({
                     user_id: req.user._id,
                     products: products,
-                    cart_total_item: 1
+                    cart_total_item: 1,
+                    cart_total_price:cart_total_price
                 })
 
                 let result = await newCart.save()
@@ -77,10 +85,14 @@ module.exports = {
                     item.qty = req.body.qty
                 }
             })
-
+            let cart_total_price= 0;
+                cart.products.map(item => {
+                    cart_total_price= cart_total_price + (item.price * item.qty)
+                })
             let updatedCart = await Cart.findByIdAndUpdate(
                 cart._id,
-                { products: cart.products },
+                { products: cart.products ,cart_total_price:cart_total_price},
+
                 { new: true }
             )
 
@@ -103,7 +115,11 @@ module.exports = {
             }
             let cart = await Cart.findOne({ user_id: req.user._id })
             let products = cart.products.filter(item => item.product_id != req.body.product_id)
-            let result = await Cart.findByIdAndUpdate(cart._id, { products: products, cart_total_item: products.length }, { new: true })
+            let cart_total_price= 0;
+                products.map(item => {
+                    cart_total_price= cart_total_price + (item.price * item.qty)
+                })
+            let result = await Cart.findByIdAndUpdate(cart._id, { products: products, cart_total_item: products.length,cart_total_price:cart_total_price }, { new: true })
             res.json({
                 status: 'success',
                 message: 'Product removed from the cart.'
@@ -117,7 +133,8 @@ module.exports = {
 
     emptyCart: async (req, res) => {
         try {
-            let result = await Cart.findOneAndUpdate({ user_id:req.user._id }, { products: [], cart_total_item: 0 }, { new: true })
+            
+            let result = await Cart.findOneAndUpdate({ user_id:req.user._id }, { products: [], cart_total_item: 0 ,cart_total_price:0 }, { new: true })
             res.json({
                 status: 'success',
                 message: 'Cart emptied successfully.'

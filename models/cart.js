@@ -30,6 +30,9 @@ var schema = new Schema({
     cart_total_item:{
         type: Number
     },
+    cart_total_price:{
+        type:Number
+    },
     updated_at: {
         type: Date,
         default: moment().unix() * 1000

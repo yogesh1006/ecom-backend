@@ -30,6 +30,8 @@ router.put('/api/update_cart_qty',CartController.updatedCartQty)
 router.post('/api/remove_product',CartController.removeProduct)
 router.post('/api/empty_cart',CartController.emptyCart)
 router.get('/api/get_user_cart',CartController.getUserCart)
+router.post('/api/add_wishlist',CartController.addToWishlistFromCart)
+
 
 // Product apis
 

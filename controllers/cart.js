@@ -162,5 +162,73 @@ module.exports = {
                 message: (error && error.message) || 'Oops! Failed to get user cart.'
             })
         }
-    }
+    },
+
+
+    addToWishlistFromCart : async (req,res)=>{
+        try {
+            if (!req.body.product_id) {
+                throw { message: 'Product id is required.' }
+            }
+            let product = await Product.findById(req.body.product_id)
+            let wishlist = await Wishlist.findOne({ user_id: req.user._id })
+            if (wishlist) {
+                wishlist.products.map(item => {
+                    if (item.product_id == req.body.product_id) {
+                        throw { message: 'Product already exist in wishlist.' }
+                    }
+                })
+                wishlist.products.push({
+                    product_id: product._id,
+                    name: product.name,
+                    qty: 1,
+                    price: product.price
+                })
+                let wishlist_total_item = wishlist.products.length
+                let updatedWishlist = await Wishlist.findByIdAndUpdate(
+                    wishlist._id,
+                    { products: wishlist.products, wishlist_total_item: wishlist_total_item },
+                    { new: true }
+                )
+                let cart = await Cart.findOne({ user_id: req.user._id })
+                let cartProducts = cart.products.filter(item => item.product_id != req.body.product_id)
+                let updatedCart = await Cart.findByIdAndUpdate(cart._id, { products: cartProducts, cart_total_item: cartProducts.length }, { new: true })
+            
+               
+                res.json({
+                    status: 'success',
+                    message: 'Product added to wishlist.'
+                })
+            } else {
+
+                let products = [{
+                    product_id: product._id,
+                    name: product.name,
+                    price: product.price,
+                }]
+                let newWishlist = new Wishlist({
+                    user_id: req.user._id,
+                    products: products,
+                    wishlist_total_item: 1
+                })
+
+                let result = await newWishlist.save()
+                if(result){
+                let cart = await Cart.findOne({ user_id: req.user._id })
+                let cartProducts = cart.products.filter(item => item.product_id != req.body.product_id)
+                let updatedCart = await Cart.findByIdAndUpdate(cart._id, { products: cartProducts, cart_total_item: cartProducts.length }, { new: true })
+            
+                }
+                res.json({
+                    status: 'success',
+                    message: 'Product added to Wishlist.'
+                })
+            }
+            
+        } catch (error) {
+            res.status(400).json({
+                message: (error && error.message) || 'Oops! Failed to add product.'
+            })
+        }
+    } 
 }

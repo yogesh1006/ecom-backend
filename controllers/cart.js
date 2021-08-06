@@ -1,7 +1,7 @@
 const Cart = require('../models/cart')
 const Product = require('../models/product')
 const config =require('../config')
-
+const Wishlist= require('../models/wishlist')
 
 
 module.exports = {

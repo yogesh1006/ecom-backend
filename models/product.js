@@ -12,8 +12,14 @@ var schema = new Schema({
     description: {
         type: String
     },
+    brand:{
+        type:String
+    },
     price: {
         type: String
+    },
+    size:{
+        type:Array,
     },
     image: {
         type: String

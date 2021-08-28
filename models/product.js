@@ -19,7 +19,7 @@ var schema = new Schema({
         type: String
     },
     size:{
-        type:Array,
+        type:String,
     },
     image: {
         type: String

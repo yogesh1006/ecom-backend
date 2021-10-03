@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ushopweship/static/css/main.5059ad55.chunk.css",
-    "main.js": "/ushopweship/static/js/main.22f4ed2e.chunk.js",
-    "main.js.map": "/ushopweship/static/js/main.22f4ed2e.chunk.js.map",
+    "main.js": "/ushopweship/static/js/main.1e8a2162.chunk.js",
+    "main.js.map": "/ushopweship/static/js/main.1e8a2162.chunk.js.map",
     "runtime-main.js": "/ushopweship/static/js/runtime-main.6ab942a4.js",
     "runtime-main.js.map": "/ushopweship/static/js/runtime-main.6ab942a4.js.map",
     "static/css/2.db1b90d1.chunk.css": "/ushopweship/static/css/2.db1b90d1.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.db1b90d1.chunk.css",
     "static/js/2.5334e774.chunk.js",
     "static/css/main.5059ad55.chunk.css",
-    "static/js/main.22f4ed2e.chunk.js"
+    "static/js/main.1e8a2162.chunk.js"
   ]
 }

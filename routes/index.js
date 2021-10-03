@@ -9,6 +9,7 @@ const WishlistController= require('../controllers/wishlist')
 const Validation= require('../validations')
 const {upload}= require('../utils/uploader')
 const isUserAuthenticated= require('../middlewares/isUserAuthenticated')
+const CheckoutController = require('../controllers/checkout');
 
 // User apis
 
@@ -51,6 +52,9 @@ router.post('/api/add_to_wishlist',WishlistController.addToWishlist)
 router.post('/api/remove_product_wishlist',WishlistController.removeProduct)
 router.get('/api/get_user_wishlist',WishlistController.getUserWishlist)
 router.post('/api/add_cart',WishlistController.addToCart)
+
+//checkout
+router.post('/api/payment',CheckoutController.checkout);
 
 
 module.exports = router;

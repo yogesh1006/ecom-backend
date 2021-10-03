@@ -28,6 +28,9 @@ var schema = new Schema({
     created_at: {
         type: Date,
         default: moment().unix() * 1000
+    },
+    stripe_id:{
+      type:String
     }
 }, {
     collection: 'user'

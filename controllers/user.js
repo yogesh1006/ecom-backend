@@ -28,7 +28,9 @@ module.exports = {
 
     login: async (req,res)=>{
         try {
+
             let user= await User.findOne({email: req.body.email})
+    
             if(!user){
                 return res.status(400).json({
                     message: 'Please check your email or password.'
@@ -46,9 +48,10 @@ module.exports = {
                     let userObj= {
                         first_name: user.first_name,
                         last_name: user.last_name,
-                        email: user.last_name,
+                        email: user.email,
                         token: token
                     }
+                    console.log(user.email)
                     res.json({
                         status: 'success',
                         message: 'Looged in successfully.',
